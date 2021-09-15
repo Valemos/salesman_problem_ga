@@ -23,6 +23,11 @@ mutate and die to continue evolution process
 
   contains collection of chromosomes, which can be mutated using their internal functions
 
+* **ScoredCreature**
+
+  this structure groups creature, and it's score obtained using OptimizationProblem target function
+it is used inside Population class.
+
 * **EnumChromosome**
 
   contains set of unique genes (integers) which can be permuted inside it.
@@ -31,3 +36,15 @@ For this task order of integers represents an order in which cities are being vi
 * **main.cpp, mainwindow.cpp, mainwindow.h**
 
   files contain code for GUI of an app
+
+
+Algorithm logic is implemented in function EvolveGeneration of Population class.
+Chromosomes contain order of visited cities
+
+**[Crossingover operation](https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm))** reverses tail of chromosome after some position
+
+**[Mutation operation](https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm))** swaps two genes to allow new possibilities founding new solutions
+
+In this implementation best half of the population is allowed to mate (use crossingover)
+and creates for each specimen two new creatures. 
+After mating, some percentage of creatures mutate and iteration can be repeated.
