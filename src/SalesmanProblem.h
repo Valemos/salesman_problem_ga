@@ -1,10 +1,4 @@
-//
-// Created by anton on 11.09.21.
-//
-
-#ifndef LAB1_SALESMAN_PROBLEM_SALESMANPROBLEM_H
-#define LAB1_SALESMAN_PROBLEM_SALESMANPROBLEM_H
-
+#pragma once
 
 #include <utility>
 #include <vector>
@@ -38,6 +32,3 @@ private:
     std::vector<Destination> cities;
     std::vector<std::vector<double>> distances;
 };
-
-
-#endif //LAB1_SALESMAN_PROBLEM_SALESMANPROBLEM_H

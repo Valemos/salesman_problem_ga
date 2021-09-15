@@ -1,9 +1,4 @@
-//
-// Created by anton on 12.09.21.
-//
-
-#ifndef LAB1_SALESMAN_PROBLEM_SCOREDCREATURE_H
-#define LAB1_SALESMAN_PROBLEM_SCOREDCREATURE_H
+#pragma once
 
 #include "Creature.h"
 
@@ -15,5 +10,3 @@ struct ScoredCreature {
         return score < other.score;
     }
 };
-
-#endif //LAB1_SALESMAN_PROBLEM_SCOREDCREATURE_H

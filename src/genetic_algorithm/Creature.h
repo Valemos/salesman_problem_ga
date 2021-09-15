@@ -1,9 +1,4 @@
-//
-// Created by anton on 11.09.21.
-//
-
-#ifndef LAB1_GENETIC_ALGORITHMS_CREATURE_H
-#define LAB1_GENETIC_ALGORITHMS_CREATURE_H
+#pragma once
 
 
 #include <vector>
@@ -20,4 +15,3 @@ private:
     std::vector<EnumChromosome> chromosomes;
 };
 
-#endif //LAB1_GENETIC_ALGORITHMS_CREATURE_H

@@ -1,9 +1,4 @@
-//
-// Created by anton on 11.09.21.
-//
-
-#ifndef LAB1_GENETIC_ALGORITHMS_CHROMOSOME_H
-#define LAB1_GENETIC_ALGORITHMS_CHROMOSOME_H
+#pragma once
 
 
 #include <vector>
@@ -28,6 +23,3 @@ public:
 private:
     std::vector<int> genes;
 };
-
-
-#endif //LAB1_GENETIC_ALGORITHMS_CHROMOSOME_H

@@ -1,11 +1,4 @@
-#include <cmath>
-
-//
-// Created by anton on 11.09.21.
-//
-
-#ifndef LAB1_SALESMAN_PROBLEM_DESTINATION_H
-#define LAB1_SALESMAN_PROBLEM_DESTINATION_H
+#pragma once
 
 #include <cmath>
 
@@ -27,6 +20,3 @@ public:
         std::cout << "(" << x << ", " << y << ")";
     }
 };
-
-
-#endif //LAB1_SALESMAN_PROBLEM_DESTINATION_H

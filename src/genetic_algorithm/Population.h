@@ -1,9 +1,4 @@
-//
-// Created by anton on 11.09.21.
-//
-
-#ifndef LAB1_SALESMAN_PROBLEM_POPULATION_H
-#define LAB1_SALESMAN_PROBLEM_POPULATION_H
+#pragma once
 
 
 #include <list>
@@ -45,6 +40,3 @@ private:
 
     [[nodiscard]] Creature CreateNewCreature(Creature parent);
 };
-
-
-#endif //LAB1_SALESMAN_PROBLEM_POPULATION_H

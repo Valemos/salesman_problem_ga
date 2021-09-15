@@ -2,9 +2,7 @@
 // Created by anton on 13.09.21.
 //
 
-#ifndef SALESMAN_PROBLEM_GUI_SALESMANPROBLEMSOLUTIONPROGRESS_H
-#define SALESMAN_PROBLEM_GUI_SALESMANPROBLEMSOLUTIONPROGRESS_H
-
+#pragma once
 
 #include <memory>
 #include "src/genetic_algorithm/Population.h"
@@ -40,6 +38,3 @@ private:
     int current_iteration {0};
     int max_iterations {0};
 };
-
-
-#endif //SALESMAN_PROBLEM_GUI_SALESMANPROBLEMSOLUTIONPROGRESS_H
