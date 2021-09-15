@@ -30,7 +30,7 @@ target_link_libraries(salesman_problem genetic_algorithm)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-add_executable(tests tests/test_algorithm.cpp tests/test_calculation_functions.cpp tests/test_crossingover.cpp tests/test_population.cpp tests/test_calculation_functions.cpp)
+add_executable(tests tests/test_algorithm.cpp tests/test_calculation_functions.cpp tests/test_crossingover.cpp tests/test_calculation_functions.cpp)
 target_link_libraries(tests Threads::Threads gtest gtest_main genetic_algorithm salesman_problem)
 
 

@@ -24,16 +24,15 @@ std::vector<int> &EnumChromosome::GetGenesRef() {
 }
 
 void EnumChromosome::Shuffle() {
-    long seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::default_random_engine engine(seed);
-    Shuffle(engine);
+    std::random_device device{};
+    Shuffle(device);
 }
 
-void EnumChromosome::Shuffle(std::default_random_engine &engine) {
+void EnumChromosome::Shuffle(std::random_device &engine) {
     std::shuffle(genes.begin(), genes.end(), engine);
 }
 
-void EnumChromosome::SelfCrossingoverRandom(std::default_random_engine &engine) {
+void EnumChromosome::SelfCrossingoverRandom(std::random_device &engine) {
     std::uniform_int_distribution<unsigned> distribution(0, genes.size() - 1);
     auto cut_position = distribution(engine);
 

@@ -19,8 +19,8 @@ public:
     std::vector<int>& GetGenesRef();
     unsigned long GetSize() const;
     void Shuffle();
-    void Shuffle(std::default_random_engine &engine);
-    void SelfCrossingoverRandom(std::default_random_engine &engine);
+    void Shuffle(std::random_device &engine);
+    void SelfCrossingoverRandom(std::random_device &engine);
     void SelfCrossingover(unsigned int cut_position);
 
     bool operator == (const EnumChromosome& other) const;

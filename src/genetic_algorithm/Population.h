@@ -20,8 +20,8 @@ public:
                                                               std::shared_ptr<OptimizationProblem> problem,
                                                               double mutate_fraction);
 
-    Population(std::list<Creature> creatures, std::shared_ptr<OptimizationProblem>  input_problem,
-               std::default_random_engine random_engine, double mutate_fraction);
+    Population(std::list<Creature> creatures, std::shared_ptr<OptimizationProblem> input_problem,
+               double mutate_fraction);
 
     void EvolveGeneration();
 
@@ -34,15 +34,16 @@ public:
 
 private:
     double mutate_fraction;
+    std::random_device random_engine;
 
     std::shared_ptr<OptimizationProblem> problem;
     std::list<ScoredCreature> creature_scores;
-    std::default_random_engine random_engine;
 
     static void InsertCreature(std::list<ScoredCreature> &container, ScoredCreature creature);
 
     std::list<ScoredCreature> MutateGeneration(std::list<ScoredCreature> generation);
 
+    [[nodiscard]] Creature CreateNewCreature(Creature parent);
 };
 
 

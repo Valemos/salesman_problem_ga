@@ -8,8 +8,7 @@ std::shared_ptr<Population> Population::CreateRandomPopulation(unsigned initial_
                                                                double mutate_fraction) {
     std::list<Creature> creatures{};
 
-    long seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::default_random_engine random_engine(seed);
+    std::random_device random_engine;
 
     for (auto i = 0; i < initial_size; i++) {
         EnumChromosome chromosome(genes_amount);
@@ -18,15 +17,12 @@ std::shared_ptr<Population> Population::CreateRandomPopulation(unsigned initial_
         creatures.push_back(new_creature);
     }
 
-    return std::make_shared<Population>(creatures, std::move(problem), random_engine, mutate_fraction);
+    return std::make_shared<Population>(creatures, std::move(problem), mutate_fraction);
 }
 
-Population::Population(std::list<Creature> creatures,
-                       std::shared_ptr<OptimizationProblem>  input_problem,
-                       std::default_random_engine random_engine,
+Population::Population(std::list<Creature> creatures, std::shared_ptr<OptimizationProblem> input_problem,
                        double mutate_fraction) :
                        problem(std::move(input_problem)),
-                       random_engine(random_engine),
                        mutate_fraction(mutate_fraction) {
     for (auto& creature : creatures) {
         InsertCreature(creature_scores, {creature, problem->CalculateCreatureSolution(creature)});
@@ -36,25 +32,18 @@ Population::Population(std::list<Creature> creatures,
 void Population::EvolveGeneration() {
     std::list<ScoredCreature> new_generation;
 
+//    only half of population can mate and continue to new generation
     size_t creature_mating_count = creature_scores.size() / 2;
     for (auto& scored_creature : creature_scores) {
-        Creature new_creature {scored_creature.creature};
-        for (auto& chromosome : new_creature.GetChromosomes()) {
-            chromosome.SelfCrossingoverRandom(random_engine);
-        }
-        InsertCreature(new_generation, {std::move(new_creature), 0});
-
-        new_creature = Creature(scored_creature.creature);
-        for (auto& chromosome : new_creature.GetChromosomes()) {
-            chromosome.SelfCrossingoverRandom(random_engine);
-        }
-        InsertCreature(new_generation, {std::move(new_creature), 0});
-
+        // create two creatures instead of one
+        InsertCreature(new_generation, {CreateNewCreature(scored_creature.creature), 0});
+        InsertCreature(new_generation, {CreateNewCreature(scored_creature.creature), 0});
         if (--creature_mating_count == 0) break;
     }
 
+    // if there were odd number of creatures, let another creature mate
     if (creature_scores.size() % 2 != 0) {
-        InsertCreature(new_generation, {creature_scores.begin()->creature, 0});
+        InsertCreature(new_generation, {CreateNewCreature(creature_scores.begin()->creature), 0});
     }
 
     creature_scores.clear();
@@ -62,6 +51,13 @@ void Population::EvolveGeneration() {
         new_creature.score = problem->CalculateCreatureSolution(new_creature.creature);
         InsertCreature(creature_scores, std::move(new_creature));
     }
+}
+
+Creature Population::CreateNewCreature(Creature parent) {
+    for (auto& chromosome : parent.GetChromosomes()) {
+        chromosome.SelfCrossingoverRandom(random_engine);
+    }
+    return parent;
 }
 
 void Population::InsertCreature(std::list<ScoredCreature> &container, ScoredCreature creature) {
