@@ -15,8 +15,8 @@ public:
     unsigned long GetSize() const;
     void Shuffle();
     void Shuffle(std::random_device &engine);
-    void SelfCrossingoverRandom(std::random_device &engine);
-    void SelfCrossingover(unsigned int cut_position);
+    void SelfCrossoverRandom(std::random_device &engine);
+    void SelfCrossover(unsigned int cut_position);
 
     bool operator == (const EnumChromosome& other) const;
 

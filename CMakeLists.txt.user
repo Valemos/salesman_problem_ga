@@ -73,11 +73,11 @@
     <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_calculation_functions.cpp:TestCalculations">Checked</value>
     <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_calculation_functions.cpp:TestCorrectDistances">Checked</value>
     <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_calculation_functions.cpp:TestPathCalculation">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_crossingover.cpp:SelfCrossingoverIncorrectBoundsNotChanges">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_crossingover.cpp:SelfCrossingoverOnSamePositionReverses">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_crossingover.cpp:SuiteName">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_crossingover.cpp:TestCrossingover">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_crossingover.cpp:TestCrossingoverCorrect">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_Crossover.cpp:SelfCrossoverIncorrectBoundsNotChanges">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_Crossover.cpp:SelfCrossoverOnSamePositionReverses">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_Crossover.cpp:SuiteName">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_Crossover.cpp:TestCrossover">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_Crossover.cpp:TestCrossoverCorrect">Checked</value>
     <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_population.cpp:CheckShuffleRandomizer">Checked</value>
     <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_population.cpp:TestPopulation">Checked</value>
     <value type="Qt::CheckState" key="1@/home/anton/KPI/Artificial Intelligence/lab1_genetic_algorithms/salesman_problem_gui/tests/test_population.cpp:TestRandomPopulationDifferentMembers">Checked</value>

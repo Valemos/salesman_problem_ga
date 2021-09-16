@@ -32,7 +32,7 @@ Population::Population(std::list<Creature> creatures, std::shared_ptr<Optimizati
 void Population::EvolveGeneration() {
     std::list<ScoredCreature> new_generation;
 
-//    only half of population can mate and continue to new generation
+    // only half of population can mate and continue to new generation
     size_t creature_mating_count = creature_scores.size() / 2;
     for (auto& scored_creature : creature_scores) {
         // create two creatures instead of one
@@ -55,7 +55,7 @@ void Population::EvolveGeneration() {
 
 Creature Population::CreateNewCreature(Creature parent) {
     for (auto& chromosome : parent.GetChromosomes()) {
-        chromosome.SelfCrossingoverRandom(random_engine);
+        chromosome.SelfCrossoverRandom(random_engine);
     }
     return parent;
 }
@@ -88,20 +88,13 @@ std::list<ScoredCreature> Population::MutateGeneration(std::list<ScoredCreature>
     auto creatures_iter = generation.begin();
 
     while (mutation_index != mutated_indices.end()) {
-        std::advance(creatures_iter, *mutation_index - cur_index);
+        creatures_iter += (*mutation_index - cur_index);
         cur_index = *mutation_index;
 
-        // swap two genes to simulate mutation
-        auto& genes = creatures_iter->creature.GetChromosomes()[0].GetGenesRef();
-
-        std::uniform_int_distribution<unsigned> chromosome_dist(0, genes.size() - 1);
-        unsigned gene1 = chromosome_dist(random_engine);
-        unsigned gene2 = chromosome_dist(random_engine);
-
-        std::swap(*(genes.begin() + gene1), *(genes.begin() + gene2));
+        creatures_iter->creature.Mutate(random_engine);
 
         creatures_iter->score = problem->CalculateCreatureSolution(creatures_iter->creature);
-        std::advance(mutation_index, 1);
+        mutation_index++;
     }
 
     return generation;

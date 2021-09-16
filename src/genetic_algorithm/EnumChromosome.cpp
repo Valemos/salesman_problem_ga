@@ -32,25 +32,24 @@ void EnumChromosome::Shuffle(std::random_device &engine) {
     std::shuffle(genes.begin(), genes.end(), engine);
 }
 
-void EnumChromosome::SelfCrossingoverRandom(std::random_device &engine) {
+void EnumChromosome::SelfCrossoverRandom(std::random_device &engine) {
     std::uniform_int_distribution<unsigned> distribution(0, genes.size() - 1);
     auto cut_position = distribution(engine);
 
-    SelfCrossingover(cut_position);
+    SelfCrossover(cut_position);
 }
 
-void EnumChromosome::SelfCrossingover(unsigned int cut_position) {
+void EnumChromosome::SelfCrossover(unsigned int cut_position) {
     if (cut_position < 0 || cut_position > genes.size() - 2) return;
 
-    auto start = genes.begin();
-    std::advance(start, cut_position + 1);
+    auto start = genes.begin() + (cut_position + 1);
     auto end = genes.rbegin();
 
     unsigned step_amount = (genes.size() - cut_position - 1) / 2;
     while (step_amount > 0) {
         std::swap(*start, *end);
-        std::advance(start, 1);
-        std::advance(end, 1);
+        start++;
+        end++;
         step_amount--;
     }
 }

@@ -41,10 +41,10 @@ For this task order of integers represents an order in which cities are being vi
 Algorithm logic is implemented in function EvolveGeneration of Population class.
 Chromosomes contain order of visited cities
 
-**[Crossingover operation](https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm))** reverses tail of chromosome after some position
+**[Crossover operation](https://en.wikipedia.org/wiki/Crossover_(genetic_algorithm))** reverses tail of chromosome after some position
 
 **[Mutation operation](https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm))** swaps two genes to allow new possibilities founding new solutions
 
-In this implementation best half of the population is allowed to mate (use crossingover)
+In this implementation best half of the population is allowed to mate (use Crossover)
 and creates for each specimen two new creatures. 
 After mating, some percentage of creatures mutate and iteration can be repeated.
